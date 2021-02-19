@@ -12,4 +12,5 @@ urlpatterns = [
 
     # User Endpoints
     path('user_dashboard/', user_views.render_user_dashboard, name="user_dashboard"),
+    path('user_profile/', user_views.render_user_profile, name="user_profile"),
 ]
