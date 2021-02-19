@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-{% load static %}
+<!DOCTYPE html> {% load static %}
 <html>
 
 <head>
@@ -69,7 +68,7 @@
             <div class="navbar-header">
                 <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
                 <a href="javascript:void(0);" class="bars"></a>
-                <a class="navbar-brand" href="#">Matrix NX - Welcome </a>
+                <a class="navbar-brand" href="#">Matrix NX - Welcome {{ user.first_name }}</a>
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
@@ -270,7 +269,7 @@
     </nav>
     <!-- #Top Bar -->
     <section>
-        {% include 'user_templates/sidebar.html' %}
+        {% include 'user_templates/sidebar.html' with user=user id=id %}
     </section>
 
     <section class="content">
@@ -291,7 +290,7 @@
     <!-- Select Plugin Js -->
     <script src="{% static 'plugins/bootstrap-select/js/bootstrap-select.js' %}"></script>
 
-    
+
     <!-- Slimscroll Plugin Js -->
     <script src="{% static 'plugins/jquery-slimscroll/jquery.slimscroll.js' %}"></script>
 
@@ -304,7 +303,7 @@
     <!-- Morris Plugin Js -->
     <script src="{% static 'plugins/raphael/raphael.min.js' %}"></script>
     <script src="{% static 'plugins/morrisjs/morris.js' %}"></script>
- 
+
     <!-- ChartJs -->
     <script src="{% static 'plugins/chartjs/Chart.bundle.js' %}"></script>
 
@@ -314,7 +313,7 @@
     <script src="{% static 'plugins/flot-charts/jquery.flot.pie.js' %}"></script>
     <script src="{% static 'plugins/flot-charts/jquery.flot.categories.js' %}"></script>
     <script src="{% static 'plugins/flot-charts/jquery.flot.time.js' %}"></script>
- 
+
     <!-- Sparkline Chart Plugin Js -->
     <script src="{% static 'plugins/jquery-sparkline/jquery.sparkline.js' %}"></script>
 
