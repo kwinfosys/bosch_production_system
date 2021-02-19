@@ -12,7 +12,7 @@
             <div class="btn-group user-helper-dropdown">
                 <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                 <ul class="dropdown-menu pull-right">
-                    <li><a href="javascript:void(0);"><i class="material-icons">person</i>Profile</a></li>
+                    <li><a href="{% url 'user_profile' %}"><i class="material-icons">person</i>Profile</a></li>
                     <li role="separator" class="divider"></li>
                     <li><a href="javascript:void(0);"><i class="material-icons">input</i>Sign Out</a></li>
                 </ul>
@@ -30,7 +30,7 @@
                     <span>Home</span>
                 </a>
             </li>
-            
+
             <li>
                 <a href="javascript:void(0);" class="menu-toggle">
                     <i class="material-icons">assessment</i>
@@ -40,7 +40,7 @@
                     <li>
                         <a href="#">Production Reports</a>
                     </li>
-                   
+
                 </ul>
             </li>
         </ul>

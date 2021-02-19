@@ -3,3 +3,6 @@ from django.http import HttpResponse
 
 def render_user_dashboard(request):
     return render(request, "user_templates/user_dashboard.html")
+
+def render_user_profile(request):
+    return render(request, "user_templates/user_profile.html")
