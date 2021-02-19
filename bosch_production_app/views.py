@@ -27,7 +27,7 @@ def perform_signin(request):
             if user.user_type == "3":
                 return HttpResponse("Expert Login")
             if user.user_type == "4":
-                return HttpResponse("Normal Login")
+                return HttpResponseRedirect("user_dashboard")
         else:
             return HttpResponse("Invalid Credentials")
 
