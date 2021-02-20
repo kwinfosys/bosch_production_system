@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.urls import reverse
 from . import models
@@ -25,11 +25,15 @@ def perform_signin(request):
             if user.user_type == "2":
                 return HttpResponse("Super Login")
             if user.user_type == "3":
-                return HttpResponse("Expert Login")
+                return HttpResponseRedirect("expert_dashboard")
             if user.user_type == "4":
                 return HttpResponseRedirect("user_dashboard")
         else:
             return HttpResponse("Invalid Credentials")
+
+def perform_signout(request):
+    logout(request)
+    return HttpResponseRedirect('/')
 
 def render_signup(request):
     department_objs = models.Department.objects.all()
