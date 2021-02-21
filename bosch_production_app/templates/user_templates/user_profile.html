@@ -8,7 +8,7 @@
                 <div class="image-area">
                     <a style="cursor: pointer;" data-toggle="modal" data-target="#smallModal">
 
-                        <img src="{% static 'images/user-lg.jpg' %}" alt="AdminBSB - Profile Image" />
+                        <img src="{{ user.normaluser.profile_image }}" alt="AdminBSB - Profile Image" />
                     </a>
 
                 </div>
@@ -19,7 +19,7 @@
                                 <h4 class="modal-title" id="smallModalLabel">Change Profile Picture</h4>
                             </div>
                             <div class="modal-body">
-                                <img src="{% static 'images/user-lg.jpg' %}" alt="AdminBSB - Profile Image" />
+                                <img src="{{ user.profile_image }}" alt="AdminBSB - Profile Image" />
                                 <br><br>
                                 <input type="file" name="" id="" accept="image/*">
                             </div>
@@ -31,16 +31,17 @@
                     </div>
                 </div>
                 <div class="content-area">
-                    <h3>Marc K. Hammond</h3>
-                    <p>Web Software Developer</p>
-                    <p>Administrator</p>
+                    <h3>{{ user.first_name }} {{ user.last_name }}</h3>
+                    {% if user.user_type == "4" %}
+                    <p>Operator</p>
+                    {% endif %}
                 </div>
             </div>
             <div class="profile-footer">
                 <ul>
                     <li>
                         <span>Employee Id</span>
-                        <span>98518495</span>
+                        <span>{{ user.employee_number }}</span>
                     </li>
                     <li>
                         <span>Rating</span>
@@ -48,7 +49,7 @@
                     </li>
                     <li>
                         <span>Grade</span>
-                        <span>G-9</span>
+                        <span>{{ user.grade }}</span>
                     </li>
                 </ul>
             </div>
@@ -116,7 +117,7 @@
                                     <label for="firstname" class="col-sm-2 control-label">First Name</label>
                                     <div class="col-sm-10">
                                         <div class="form-line">
-                                            <input type="text" class="form-control" id="firstname" name="" placeholder="First Name" required>
+                                            <input type="text" class="form-control" id="firstname" name="" placeholder="First Name" value="{{ user.first_name }}" required>
                                         </div>
                                     </div>
                                 </div>
@@ -124,7 +125,7 @@
                                     <label for="lastname" class="col-sm-2 control-label">Last Name</label>
                                     <div class="col-sm-10">
                                         <div class="form-line">
-                                            <input type="text" class="form-control" id="lastname" name="" placeholder="Last Name" required>
+                                            <input type="text" class="form-control" id="lastname" name="" placeholder="Last Name" value="{{ user.last_name }}" required>
                                         </div>
                                     </div>
                                 </div>
@@ -132,7 +133,7 @@
                                     <label for="username" class="col-sm-2 control-label">Username</label>
                                     <div class="col-sm-10">
                                         <div class="form-line">
-                                            <input type="text" class="form-control" id="username" name="" placeholder="Username" required>
+                                            <input type="text" class="form-control" id="username" name="" placeholder="Username" value="{{ user.username }}" required>
                                         </div>
                                     </div>
                                 </div>
@@ -140,7 +141,7 @@
                                     <label for="email" class="col-sm-2 control-label">Email</label>
                                     <div class="col-sm-10">
                                         <div class="form-line">
-                                            <input type="email" class="form-control" id="email" name="" placeholder="Email" required>
+                                            <input type="email" class="form-control" id="email" name="" placeholder="Email" value="{{ user.email }}" required>
                                         </div>
                                     </div>
                                 </div>
@@ -150,7 +151,7 @@
 
                                     <div class="col-sm-10">
                                         <div class="form-line">
-                                            <input type="text" class="form-control" id="empid" name="" placeholder="Employee Id">
+                                            <input type="text" class="form-control" id="empid" name="" placeholder="Employee Id" value="{{ user.employee_number }}">
                                         </div>
                                     </div>
                                 </div>
@@ -159,7 +160,7 @@
 
                                     <div class="col-sm-10">
                                         <div class="form-line">
-                                            <input type="text" class="form-control" id="mobileno" name="" placeholder="Mobile No">
+                                            <input type="text" class="form-control" id="mobileno" name="" placeholder="Mobile No" value="{{ user.mobile_no }}">
                                         </div>
                                     </div>
                                 </div>
