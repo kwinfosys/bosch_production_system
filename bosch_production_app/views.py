@@ -29,7 +29,8 @@ def perform_signin(request):
             if user.user_type == "4":
                 return HttpResponseRedirect("user_dashboard")
         else:
-            return HttpResponse("Invalid Credentials")
+            messages.error(request, "Invalid Credentials")
+            return HttpResponseRedirect("/")
 
 def perform_signout(request):
     logout(request)

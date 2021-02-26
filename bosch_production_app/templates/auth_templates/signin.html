@@ -10,7 +10,8 @@
     <link rel="icon" href="../../favicon.ico" type="image/x-icon">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet"
+        type="text/css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
 
     <!-- Bootstrap Core Css -->
@@ -37,12 +38,26 @@
                 <form id="sign_in" method="POST" action="{% url 'perform_signin' %}">
                     {% csrf_token %}
                     <div class="msg">Sign in to start your session</div>
+                    {% if messages %}
+                    {% for message in messages %}
+                    {% if message.tags == "success" %}
+                    <div class="alert alert-success">
+                        <strong>Well done !</strong> {{ message }}
+                    </div>
+                    {% else %}
+                    <div class="alert alert-danger">
+                        <strong>Error !</strong> {{ message }}
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                    {% endif %}
                     <div class="input-group">
                         <span class="input-group-addon">
                             <i class="material-icons">person</i>
                         </span>
                         <div class="form-line">
-                            <input type="text" class="form-control" name="username" placeholder="Username" required autofocus>
+                            <input type="text" class="form-control" name="username" placeholder="Username" required
+                                autofocus>
                         </div>
                     </div>
                     <div class="input-group">

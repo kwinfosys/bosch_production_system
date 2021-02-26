@@ -14,6 +14,7 @@ urlpatterns = [
     # User Endpoints
     path('user_dashboard/', user_views.render_user_dashboard, name="user_dashboard"),
     path('user_profile/', user_views.render_user_profile, name="user_profile"),
+    path('perform_user_profile', user_views.perform_user_profile, name="perform_user_profile"),
     
     # Expert Endpoints
     path('expert_dashboard/', expert_views.render_expert_dashboard, name="expert_dashboard"),
